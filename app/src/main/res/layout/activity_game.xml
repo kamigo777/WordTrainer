@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_primary">
+
+    <!-- Вода с градиентом глубины -->
+    <com.kamigo.wordtrainer.WaveView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Пузырьки поверх воды -->
+    <com.kamigo.wordtrainer.BubbleView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>
