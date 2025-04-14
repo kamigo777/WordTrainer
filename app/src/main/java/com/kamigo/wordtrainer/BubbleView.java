@@ -20,7 +20,7 @@ public class BubbleView extends View {
         super(context, attrs);
         paint.setColor(0x80FFFFFF); // полупрозрачный белый
         paint.setAntiAlias(true);
-        handler.post(updateRunnable);
+        handler.post(updateRunnable);  // запуск анимации пузырьков
     }
 
     private final Runnable updateRunnable = new Runnable() {
@@ -33,15 +33,15 @@ public class BubbleView extends View {
     };
 
     private void updateBubbles() {
-        // 💥 Добавляем МНОГО пузырей каждый кадр (например, 2–4 штуки)
+        // Добавляем 1–2 пузырька каждый кадр
         if (width > 0 && height > 0) {
-            int count = 1 + random.nextInt(2); // 1–2 пузырька за кадр
+            int count = 1 + random.nextInt(2); // 1–2 пузыря
             for (int i = 0; i < count; i++) {
                 bubbles.add(new Bubble(width, height));
             }
         }
 
-        // Обновление пузырей
+        // Обновляем и удаляем вышедшие за экран пузыри
         Iterator<Bubble> iterator = bubbles.iterator();
         while (iterator.hasNext()) {
             Bubble bubble = iterator.next();
@@ -62,5 +62,22 @@ public class BubbleView extends View {
         for (Bubble bubble : bubbles) {
             canvas.drawCircle(bubble.x, bubble.y, bubble.radius, paint);
         }
+    }
+
+    // ✅ Сброс пузырей вниз
+    public void resetToBottom() {
+        bubbles.clear();    // Удалить все текущие пузыри
+        invalidate();       // Перерисовать View
+    }
+
+    // ✅ Запустить подъём пузырей
+    public void startRising() {
+        handler.removeCallbacks(updateRunnable);
+        handler.post(updateRunnable);
+    }
+
+    // ✅ Остановить движение пузырей
+    public void stopRising() {
+        handler.removeCallbacks(updateRunnable);
     }
 }

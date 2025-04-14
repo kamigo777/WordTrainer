@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GameButtonStyle">
+        <!-- Размеры -->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">24dp</item>
+
+        <!-- Фон кнопки -->
+        <item name="android:background">@drawable/button</item>
+
+        <!-- Текст -->
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif</item>
+
+        <!-- Внутренние отступы -->
+        <item name="android:padding">16dp</item>
+    </style>
+
+</resources>

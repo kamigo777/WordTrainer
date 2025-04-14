@@ -1,17 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_primary">
 
-    <!-- Вода с градиентом глубины -->
+    <!-- Жизни (3 сердечка) -->
+    <ImageView
+        android:id="@+id/heart1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/heart_full" />
+
+    <ImageView
+        android:id="@+id/heart2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/heart_full" />
+
+    <ImageView
+        android:id="@+id/heart3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="start|top"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/heart_full" />
+
+    <!-- Вода -->
     <com.kamigo.wordtrainer.WaveView
+        android:id="@+id/waveView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Пузырьки поверх воды -->
+    <!-- Пузырьки -->
     <com.kamigo.wordtrainer.BubbleView
+        android:id="@+id/bubbleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- Игровой контент -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <!-- Слово в карточке -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/wordCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@color/white">
+
+            <TextView
+                android:id="@+id/wordText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Word"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_normal" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Варианты ответов (динамически создаются в коде) -->
+        <GridLayout
+            android:id="@+id/answerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
 </FrameLayout>

@@ -10,14 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WordTrainer">
 
+        <!-- Главный экран (главное меню) -->
         <activity
-            android:name=".GameActivity"
-            android:exported="true">
+            android:name=".StartActivity"
+            android:exported="true"
+            android:theme="@style/Theme.WordTrainer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Игровой экран -->
+        <activity
+            android:name=".GameActivity"
+            android:theme="@style/Theme.WordTrainer" />
+
+        <!-- Настройки -->
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/Theme.WordTrainer" />
 
     </application>
 

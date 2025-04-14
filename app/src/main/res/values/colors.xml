@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="gray_background">#BDBDBD</color>
+    <color name="button_default">#DDDDDD</color>
+    <color name="button_correct">#A5D6A7</color> <!-- светло-зелёный -->
+    <color name="button_wrong">#EF9A9A</color>   <!-- светло-красный -->
+    <color name="text_normal">#1A1A1A</color>
+    <color name="background_primary">#F0F8FF</color> <!-- фон воды -->
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="background_primary">#F0F8FF</color> <!-- Основной цвет: aliceblue -->
+
 
 
 </resources>

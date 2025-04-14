@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Основная тема приложения -->
     <style name="Theme.WordTrainer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryDark">@color/black</item>
-        <item name="colorAccent">@color/white</item>
+
+        <!-- Цвета приложения -->
+        <item name="colorPrimary">#FFC107</item>              <!-- Жёлтый основной -->
+        <item name="colorPrimaryVariant">#FFA000</item>        <!-- Темнее -->
+        <item name="colorSecondary">#FFEB3B</item>            <!-- Дополнительный (ярко-жёлтый) -->
+        <item name="colorOnPrimary">#000000</item>            <!-- Цвет текста на кнопках -->
+        <item name="android:textColorPrimary">#000000</item>  <!-- Основной цвет текста -->
+        <item name="colorSurface">#FFFFFF</item>              <!-- Поверхности: карточки, фоны -->
+        <item name="android:windowBackground">#F0F8FF</item>  <!-- Общий фон -->
+        <item name="colorError">#D32F2F</item>                <!-- Ошибки -->
+
+        <!-- Отключение Action Bar и заголовка окна -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Стиль кнопок по умолчанию -->
+        <item name="android:buttonStyle">@style/Widget.MaterialComponents.Button</item>
     </style>
+
 </resources>
