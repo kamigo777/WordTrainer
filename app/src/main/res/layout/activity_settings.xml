@@ -1,37 +1,121 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#F0F8FF">
 
-    <TextView
-        android:text="Выберите количество вариантов ответа:"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp"/>
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/radio4"
-            android:text="4 варианта"/>
+        <!-- Кол-во вариантов ответа -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Количество вариантов ответа:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="#000000" />
 
-        <RadioButton
-            android:id="@+id/radio6"
-            android:text="6 вариантов"/>
+        <RadioGroup
+            android:id="@+id/answerCountGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/radio8"
-            android:text="8 вариантов"/>
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/count4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4" />
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Сохранить"
-        android:layout_marginTop="24dp"/>
-</LinearLayout>
+            <RadioButton
+                android:id="@+id/count6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6" />
+
+            <RadioButton
+                android:id="@+id/count8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8" />
+        </RadioGroup>
+
+        <!-- Перевод -->
+        <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Направление перевода:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:id="@+id/directionGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/dir_en_to_ru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Иностранное → Русские ответы" />
+
+            <RadioButton
+                android:id="@+id/dir_ru_to_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Русское → Иностранные ответы" />
+
+            <RadioButton
+                android:id="@+id/dir_random"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Рандомно" />
+        </RadioGroup>
+
+        <!-- Скорость -->
+        <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Скорость ответа (сек):"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000" />
+
+        <SeekBar
+            android:id="@+id/speedSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="6" /> <!-- 6 шагов по 2 секунды -->
+
+
+        <TextView
+            android:id="@+id/speedValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 сек"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp" />
+
+        <!-- Кнопка сохранить -->
+        <View android:layout_width="match_parent" android:layout_height="24dp" />
+
+        <Button
+            android:id="@+id/saveSettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сохранить"
+            android:backgroundTint="#6495ED"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>

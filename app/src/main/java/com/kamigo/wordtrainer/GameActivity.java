@@ -2,14 +2,15 @@ package com.kamigo.wordtrainer;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,7 +70,7 @@ public class GameActivity extends AppCompatActivity {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         buttonCount = prefs.getInt("answer_count", 4);
-        answerContainer.setColumnCount(buttonCount >= 6 ? 3 : 2);
+        answerContainer.setColumnCount(2);
 
         loadNewWord();
     }
@@ -80,7 +81,7 @@ public class GameActivity extends AppCompatActivity {
         answered = false;
 
         wordCard.setCardBackgroundColor(getColor(android.R.color.white));
-        bubbleView.resetToBottom();
+        bubbleView.resetBubbles();
 
         List<String> englishWords = new ArrayList<>(wordMap.keySet());
         String randomWord = englishWords.get(new Random().nextInt(englishWords.size()));
@@ -121,7 +122,11 @@ public class GameActivity extends AppCompatActivity {
             answerContainer.addView(btn);
         }
 
-        waveView.startRising(() -> {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        int answerSpeed = prefs.getInt("answer_speed", 6);
+        long duration = answerSpeed * 1000L;
+
+        waveView.startRising(duration, () -> {
             if (!answered) {
                 runOnUiThread(() -> {
                     loseLife();
@@ -145,6 +150,9 @@ public class GameActivity extends AppCompatActivity {
                 });
             }
         });
+
+        // Пузыри стартуют одновременно с волной
+        bubbleView.startBubbles(duration);
     }
 
     private void checkAnswer(Button clickedButton, String selectedAnswer) {
@@ -152,7 +160,7 @@ public class GameActivity extends AppCompatActivity {
 
         answered = true;
         waveView.stop();
-        bubbleView.stopRising();
+        bubbleView.stopBubbles();
 
         if (selectedAnswer.equals(correctAnswer)) {
             clickedButton.setBackgroundResource(R.drawable.button_correct);
@@ -201,6 +209,6 @@ public class GameActivity extends AppCompatActivity {
 
     private void gameOver() {
         Toast.makeText(this, "Игра окончена!", Toast.LENGTH_SHORT).show();
-        finish(); // Можешь заменить на экран конца игры.
+        finish();
     }
 }
