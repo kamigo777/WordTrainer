@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kamigo.wordtrainer">
-
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
@@ -10,7 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WordTrainer">
 
-        <!-- Главное меню (первый экран при запуске) -->
         <activity
             android:name=".StartActivity"
             android:exported="true"
@@ -21,15 +19,19 @@
             </intent-filter>
         </activity>
 
-        <!-- Экран игры -->
         <activity
             android:name=".GameActivity"
             android:theme="@style/Theme.WordTrainer" />
 
-        <!-- Экран настроек -->
         <activity
             android:name=".SettingsActivity"
             android:theme="@style/Theme.WordTrainer" />
 
+        <!-- Новый экран выбора слов -->
+        <activity
+            android:name=".WordListSelectionActivity"
+            android:theme="@style/Theme.WordTrainer" />
+
     </application>
+
 </manifest>

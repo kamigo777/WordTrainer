@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/wordListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выберите список слов"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/button_animals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Животные"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/button_verbs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Глаголы"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/button_food"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Еда"
+        android:layout_marginBottom="32dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/button_upload_own"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Загрузить свои слова"
+        android:background="#CCCCCC"/>
+</LinearLayout>

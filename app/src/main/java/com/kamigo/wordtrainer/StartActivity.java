@@ -15,8 +15,9 @@ public class StartActivity extends AppCompatActivity {
         Button startButton = findViewById(R.id.startButton);
         Button settingsButton = findViewById(R.id.settingsButton);
 
+        // Заменено: теперь запускается WordListSelectionActivity
         startButton.setOnClickListener(v -> {
-            startActivity(new Intent(this, GameActivity.class));
+            startActivity(new Intent(this, WordListSelectionActivity.class));
         });
 
         settingsButton.setOnClickListener(v -> {
